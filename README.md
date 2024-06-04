@@ -1,6 +1,6 @@
-# Daz to Blender Hair Converter
+# Daz to Blender - Particle Hair Converter
 ## Created by Cinus, forked from Jobutsu
-## Blender 4.1.1 update
+### Blender 4.1.1 update
 
 * Original Forum Post:
 https://www.daz3d.com/forums/discussion/445851/hair-converter-add-on-for-blender
