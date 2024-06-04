@@ -80,7 +80,5 @@ This is handy if the hair has braids. You could first select all the non-braid s
 
 This is also handy if you want to create separate particle slots for bangs, etc.
 
-I tested the add-on in Blender 2.83.3 and 2.90.1.
-
-Good luck with your hair conversions. Your computer should not explode when you run this converter, but I make no guarantee :).
+Tested with Blender 4.1.1 on Windows.
 
