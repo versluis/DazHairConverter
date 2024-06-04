@@ -631,7 +631,7 @@ class HairAddonPreferences(AddonPreferences):
     category: StringProperty(
             name="Tab Category",
             description="Convert Daz Hair to Particle hair",
-            default="DAZHairConverter",
+            default="DAZ Hair Converter",
             update=update_panel
             )
 
