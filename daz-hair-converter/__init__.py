@@ -1,9 +1,9 @@
 bl_info = {
     "name": "Daz Mesh Hair Converter",
-    "author": "Cinus - with contributions by Jobutsu and Jay Versluis",
+    "author": "Cinus - with various community contributions",
     "version": (2,1,3),
     "blender": (4,1,1),
-    "description": "Convert mesh hair to particle hair",
+    "description": "Convert Daz hair (mesh/cards or dForce/strand-based) to Blender particle hair",
     "category": "Object"}
 
 import sys
