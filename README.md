@@ -1,50 +1,54 @@
-# DazHairConverter
-## Fork of plugin created by Cinus.
-Original:-
+# Daz to Blender Hair Converter
+## Created by Cinus, forked from Jobutsu
+## Blender 4.1.1 update
+
+* Original Forum Post:
 https://www.daz3d.com/forums/discussion/445851/hair-converter-add-on-for-blender
 
-Original description:-
-install the add-on like you would install any other blender add-on.
+* Jay's Article on how to use this for Unreal Engine Groom Conversions:
+https://www.versluis.com/2024/04/quick-notes-on-turning-daz-hair-into-groom-hair-for-unreal-engine/
 
-The add-on can now convert most hair made of “hair cards”. The hair cards must consist of faces with 4 vertices (quads). It cannot convert hair with triangles or n-gons. It will also fail to convert cards that fold back on themselves or cards that do not start on or near the skull. Toulouse hair is an example of such hair. It will convert the hair, but some cards do not start at the skull, so the generated root particles will be wrong.
+The add-on can convert most hair made of hair cards, as well as dForce (strand-based) hair. It is recommended to export from Daz Studio at base resolution rather than High Res. For dForce hair, set the Viewport Line Tessalation to 1 or 2 so that the hair becomes visible. 
+
+The hair cards must consist of faces with 4 vertices (quads). It cannot convert hair with triangles or n-gons. It will also fail to convert cards that fold back on themselves or cards that do not start on or near the skull. Toulouse hair is an example of such hair. It will convert the hair, but some cards do not start at the skull, so the generated root particles will be wrong.
 
 Once the add-on is installed, you should see a “DazHairConverter” menu in the right-hand side of your 3D view (assuming you are using the default layout). It should look something like what is depicted in the attached Hair.jpg image.
 
 How to use:
 
-Import a Daz model with hair using either the Diffeomorphic or DazToBlender add-on or whatever other method you prefer. Most of my testing was done with the Diffeo plugin. I am not sure the hair converter will work if you use DazToBlender with the “Size * 100” box checked when importing the model.
+* Import a Daz model with hair using either the Diffeomorphic or DazToBlender add-on or whatever other method you prefer. Most of my testing was done with the Diffeo plugin. I am not sure the hair converter will work if you use DazToBlender with the “Size * 100” box checked when importing the model.
 
-You must separate the hair cap from the main hair for the converter to work. It’s the same process that Thomas Larsson documented very well here https://diffeomorphic.blogspot.com/p/hair-version-15.html
+* You must separate the hair cap from the main hair for the converter to work. It’s the same process that Thomas Larsson documented very well here: https://diffeomorphic.blogspot.com/p/hair-version-15.html
 
-Make sure you are in Object mode.
+* Make sure you are in Object mode.
 
-Select the hair mesh.
+* Select the hair mesh.
 
-Switch to Edit mode.
+* Switch to Edit mode.
 
-Select any face on the hair cap.
+* Select any face on the hair cap.
 
-Press Ctrl+L and then press P and then Enter.
+* Press Ctrl+L and then press P and then Enter.
 
-A new mesh should have been created. Rename the new mesh to Cap, or “Hair Emitter” or something similar. The name is not important. The “hair cap” will become the particle emitter.
+* A new mesh should have been created. Rename the new mesh to Cap, or “Hair Emitter” or something similar. The name is not important. The “hair cap” will become the particle emitter.
 
-If there is a Subsurface modifier on the hair cap, remove it. It’s not strictly necessary, but I think particle hair looks better without it. Blender seems to have issues if you disconnect and re-connect hair with a subsurface modifier on it.
+* If there is a Subsurface modifier on the hair cap, remove it. It’s not strictly necessary, but I think particle hair looks better without it. Blender seems to have issues if you disconnect and re-connect hair with a subsurface modifier on it.
 
-Once the hair and cap are separated, you can convert the hair.
+* Once the hair and cap are separated, you can convert the hair.
 
-Switch back to Object mode.
+* Switch back to Object mode.
 
-Select the hair mesh and while holding in shift, select the hair cap. It’s important to select the hair mesh first.
+* Select the hair mesh and while holding in shift, select the hair cap. It’s important to select the hair mesh first.
 
-Select the “DazHairConverter” menu on the right-hand side of the 3D viewport.
+* Select the “DazHairConverter” menu on the right-hand side of the 3D viewport.
 
 The hair converter has three parameters:
 
-Segments: Number of segments to create per particle. The default is 10. For shorter hair, you should decrease the number. For very curly hair, increase the number. Max is 20, but 14 should work well even for long curly hair.
+* Segments: Number of segments to create per particle. The default is 10. For shorter hair, you should decrease the number. For very curly hair, increase the number. Max is 20, but 14 should work well even for long curly hair.
 
-Single Strand Width (m): This value is used to determine which hair cards will be converted to single particles with no children. If you set the value to 0, then no “single hairs” will be created. If you set the value to the max then most of the hair particles will become “single hairs”. The default value of .001 should work for most hair, but for AprilYsh hair I get the best results by setting it to 0 and then using the Random and Threshold settings under Roughness to add loose hairs.
+* Single Strand Width (m): This value is used to determine which hair cards will be converted to single particles with no children. If you set the value to 0, then no “single hairs” will be created. If you set the value to the max then most of the hair particles will become “single hairs”. The default value of .001 should work for most hair, but for AprilYsh hair I get the best results by setting it to 0 and then using the Random and Threshold settings under Roughness to add loose hairs.
 
-Strand Radius (m): This value will be used as the child particle radius. If a hair card wider than 2 * Strand Radius is encountered, additional particles will be created in order to fill the card with hair. A value of .008 works well for most hair.
+* Strand Radius (m): This value will be used as the child particle radius. If a hair card wider than 2 * Strand Radius is encountered, additional particles will be created in order to fill the card with hair. A value of .008 works well for most hair.
 
 In order to kick off the conversion, click the “Convert Hair” button.
 
