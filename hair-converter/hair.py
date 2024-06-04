@@ -313,7 +313,7 @@ class HairConverter:
         if render_amount > 0:
             pset.rendered_child_count = render_amount
             pset.child_type = 'SIMPLE'
-            pset.child_nbr = render_amount
+            pset.child_percent = render_amount # thanks to neograph734 for this Blender 4.x fix
             pset.child_length = .95
             pset.child_length_threshold = .5
             pset.child_radius = self.scale(self.strandRadius)
